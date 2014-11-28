@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+    	classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.0'
+  	}
+}
+
+sourceSets {
+    main {
+    	resources{
+    		srcDir 'resources'
+    	}
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	testCompile group: 'junit', name: 'junit', version: '4.+'
+	compile 'net.magik6k.jwwf:jwwf:0.2.0'
+	compile 'com.google.code.gson:gson:2.3.1'
+}
+
+compileJava {
+	options.fork = true
+	sourceCompatibility = "1.7"
+	targetCompatibility = "1.7"
+}
+
+javadoc {
+	include 'net/magik6k/jwwf/**'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+from 'build/docs/javadoc'
+classifier 'javadoc'
+}
