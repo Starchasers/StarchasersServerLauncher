@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import pl.starchasers.serverlauncher.manager.tasks.Tasks;
+
 public class MsmMain {
     private static Properties prop = new Properties();
     private static final String configFile = "msm.properties";

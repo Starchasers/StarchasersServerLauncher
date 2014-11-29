@@ -1,11 +1,9 @@
-package com.bymarcin.minecraftservermanager;
+package pl.starchasers.serverlauncher.manager.tasks;
 
-import com.bymarcin.minecraftservermanager.sync.FileListGenerator;
+import com.bymarcin.minecraftservermanager.ITask;
 import com.bymarcin.minecraftservermanager.tasks.SaveAll;
 import com.bymarcin.minecraftservermanager.tasks.ServerBackup;
 import com.bymarcin.minecraftservermanager.tasks.ServerStatus;
-import com.bymarcin.minecraftservermanager.tasks.SetupClient;
-import com.bymarcin.minecraftservermanager.tasks.SetupServer;
 import com.bymarcin.minecraftservermanager.tasks.StartServer;
 import com.bymarcin.minecraftservermanager.tasks.StopServer;
 
@@ -18,10 +16,10 @@ public enum Tasks {
     STOP(StopServer.class),
     SAVEALL(SaveAll.class),
     BACKUP(ServerBackup.class),
-    SETUPSERVER(SetupServer.class),
-    SETUPCLIENT(SetupClient.class),
-    GENERATEFILELIST(FileListGenerator.class);
-
+    //SETUPSERVER(SetupServer.class),
+    //SETUPCLIENT(SetupClient.class),
+    //GENERATEFILELIST(FileListGenerator.class)
+    ;
     private ITask task;
     Tasks(Class<? extends ITask> clazz){
         try {

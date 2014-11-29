@@ -1,7 +1,8 @@
 package com.bymarcin.minecraftservermanager.tasks;
 
+import pl.starchasers.serverlauncher.manager.tasks.Tasks;
+
 import com.bymarcin.minecraftservermanager.ITask;
-import com.bymarcin.minecraftservermanager.Tasks;
 import com.bymarcin.minecraftservermanager.Utils;
 
 public class StopServer implements ITask{

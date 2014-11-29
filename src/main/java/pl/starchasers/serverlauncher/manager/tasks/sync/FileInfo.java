@@ -1,4 +1,4 @@
-package com.bymarcin.minecraftservermanager.sync;
+package pl.starchasers.serverlauncher.manager.tasks.sync;
 
 public class FileInfo {
 	private String fileName;

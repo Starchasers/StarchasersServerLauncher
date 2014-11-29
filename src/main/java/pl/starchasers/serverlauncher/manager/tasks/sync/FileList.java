@@ -1,4 +1,4 @@
-package com.bymarcin.minecraftservermanager.sync;
+package pl.starchasers.serverlauncher.manager.tasks.sync;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.bymarcin.minecraftservermanager.sync;
+package pl.starchasers.serverlauncher.manager.tasks.sync;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,6 +9,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+
+import pl.starchasers.serverlauncher.manager.ProfileProperties;
 
 import com.bymarcin.minecraftservermanager.Config;
 import com.bymarcin.minecraftservermanager.ITask;
@@ -22,7 +24,13 @@ public class FileListGenerator implements ITask{
 	public Gson gson = new Gson();
 	public List<String> toDownload = new ArrayList<String>();
 	public List<String> toDelete = new ArrayList<String>();
-	private File blacklist = new File(Config.GIT_REPO_PATH.get() + "/blacklist_client.json");
+	private File blacklist;
+	private String profile;
+	
+	public FileListGenerator(String profile){
+		blacklist = new File(((String)ProfileProperties.SYNCDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/blacklist_client.json");
+		this.profile = profile;
+	}
 	
 	public void searchFiles(String rootDir, String path, boolean recursive, List<FileInfo> list, ArrayList<String> blackList) {
 		File folder = new File(rootDir , path);
@@ -79,16 +87,16 @@ public class FileListGenerator implements ITask{
 	public boolean runTask() {
 		
 		ArrayList<String> blacklist = Utils.getBlackList(this.blacklist);
-		searchFiles(Config.GIT_REPO_PATH.get(), "config", true, fileconfig, blacklist);
-		searchFiles(Config.GIT_REPO_PATH.get(), "mods", true, fileMod, blacklist);
+		searchFiles(((String)ProfileProperties.SYNCDIR.get(profile)).replace("{profile}","profiles/"+profile), "config", true, fileconfig, blacklist);
+		searchFiles(((String)ProfileProperties.SYNCDIR.get(profile)).replace("{profile}","profiles/"+profile), "mods", true, fileMod, blacklist);
 		
 		fileList.setModList(fileMod);
 		fileList.setConfigList(fileconfig);
 		
 		try {
-			 PrintWriter zapis = new PrintWriter(Config.CLIENT_PATH.get() + "/filelist.json");
-			 zapis.print(gson.toJson(fileList));
-			 zapis.close();
+			 PrintWriter save = new PrintWriter(((String)ProfileProperties.CLIENTDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/filelist.json");
+			 save.print(gson.toJson(fileList));
+			 save.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

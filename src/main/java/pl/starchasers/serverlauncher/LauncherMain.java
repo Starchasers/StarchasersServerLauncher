@@ -1,12 +1,16 @@
 package pl.starchasers.serverlauncher;
 
 import java.io.File;
+import java.util.Map.Entry;
 
-import pl.starchasers.serverlauncher.webui.LauncherClient;
-import net.magik6k.jwwf.core.JwwfServer;
+import pl.starchasers.serverlauncher.manager.FileManager;
+import pl.starchasers.serverlauncher.webui.Webapp;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+import com.typesafe.config.ConfigValue;
+
+import cpw.mods.fml.installer.ServerInstall;
 
 public class LauncherMain {
     private static final String configFile = "serverlauncher.conf";
@@ -17,24 +21,14 @@ public class LauncherMain {
     }
     
 	public static void main(String[] args){
-		int port;
-		try {
-			port = new Integer( args[ 0 ] );
-		} catch ( Exception e ) {
-			System.out.println( "No port specified. Defaulting to 8888" );
-			port = 8888;
+		System.out.println("Starting");
+		ServerInstall.headless = true;
+		
+		for(Entry<String, ConfigValue> profile : config.getObject("profiles").entrySet()){
+			
+			System.out.println("Checking profile " + profile.getKey());
+			FileManager.checkProfile(profile.getKey());
 		}
-		JwwfServer server = new JwwfServer(port);
-		try {
-			String addr = args[1];
-			if(addr != null){
-				server.setApiUrl(addr);
-			}
-		} catch( Exception e ) {
-			System.out.println( "No custom API address given, using automatic mode." );
-		}
-		JwwfServer.debugOutput(true);
-		server.bindWebapp(LauncherClient.class).start();
-		server.start();
+		Webapp.run(args);
 	}
 }

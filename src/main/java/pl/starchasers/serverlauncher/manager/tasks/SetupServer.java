@@ -1,12 +1,13 @@
-package com.bymarcin.minecraftservermanager.tasks;
+package pl.starchasers.serverlauncher.manager.tasks;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import pl.starchasers.serverlauncher.manager.ProfileProperties;
+
 import com.bymarcin.minecraftservermanager.Config;
 import com.bymarcin.minecraftservermanager.ITask;
-import com.bymarcin.minecraftservermanager.Tasks;
 import com.bymarcin.minecraftservermanager.Utils;
 
 public class SetupServer implements ITask{
@@ -16,13 +17,15 @@ public class SetupServer implements ITask{
 	File gitModsDir;
 	File gitConfigDir;
 	
-	public SetupServer() {
-		blacklist = new File(Config.GIT_REPO_PATH.get() + "/blacklist_server.json");
-		configDir = new File(Config.SERVER_PATH.get() + "/config");
-		modsDir = new File(Config.SERVER_PATH.get() + "/mods");
+	public SetupServer(){}
+	
+	public SetupServer(String profile) {
+		blacklist = new File(((String)ProfileProperties.SYNCDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/blacklist_server.json");
+		configDir = new File(((String)ProfileProperties.SERVERDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/config");
+		modsDir = new File(((String)ProfileProperties.SERVERDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/mods");
 		
-		gitConfigDir  = new File(Config.GIT_REPO_PATH.get() + "/config");
-		gitModsDir = new File(Config.GIT_REPO_PATH.get() + "/mods");
+		gitConfigDir  = new File(((String)ProfileProperties.SYNCDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/config");
+		gitModsDir = new File(((String)ProfileProperties.SYNCDIR.get(profile)).replace("{profile}","profiles/"+profile) + "/mods");
 	}
 
 	@Override
