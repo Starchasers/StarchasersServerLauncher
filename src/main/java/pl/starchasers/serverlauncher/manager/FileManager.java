@@ -23,8 +23,7 @@ public class FileManager {
 			System.out.println(">>>> Forge installed, setting up server");
 			new SetupServer(name).runTask();
 			
-			System.out.println("Setting up client");
-			
+			System.out.println("Setting up client");			
 		}
 		
 		profileDir = new File(((String)ProfileProperties.CLIENTDIR.get(name)).replace("{profile}","profiles/"+name));		

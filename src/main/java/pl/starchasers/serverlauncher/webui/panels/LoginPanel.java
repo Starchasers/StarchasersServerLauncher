@@ -1,4 +1,4 @@
-package pl.starchasers.serverlauncher.webui;
+package pl.starchasers.serverlauncher.webui.panels;
 
 import pl.starchasers.serverlauncher.webui.permissions.PermissionManager;
 import net.magik6k.jwwf.core.MainFrame;
@@ -23,7 +23,7 @@ public class LoginPanel extends VerticalPanel {
 			@Override
 			public void clicked() {
 				if(PermissionManager.instance.checkUser(login.getText(), password.getText())){
-					root.put(new TextLabel("Logged in"));
+					root.put(new UserWrapper(login.getText()));
 				}
 			}
 		}));

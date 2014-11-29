@@ -11,4 +11,17 @@ public class PermissionManager {
 				LauncherMain.config.getConfig("users."+name.replaceAll("\\.", "_"))
 				.getString("password").equals(password);
 	}
+	
+	public boolean hasPermission(String name, String permission){
+		return LauncherMain.config.hasPath("users."+name.replaceAll("\\.", "_")) &&
+				LauncherMain.config.getConfig("users."+name.replaceAll("\\.", "_")).getBoolean(permission);
+	}
+	
+	public int getUserRightCount(String name){
+		int c = 0;
+		c += hasPermission(name, "update")?1:0;
+		c += hasPermission(name, "manage")?1:0;
+		c += hasPermission(name, "serverinfo")?1:0;
+		return c;
+	}
 }
