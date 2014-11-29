@@ -1,5 +1,6 @@
-package pl.starchasers.serverlauncher;
+package pl.starchasers.serverlauncher.webui;
 
+import pl.starchasers.serverlauncher.webui.permissions.PermissionManager;
 import net.magik6k.jwwf.core.MainFrame;
 import net.magik6k.jwwf.handlers.ClickHandler;
 import net.magik6k.jwwf.widgets.basic.TextLabel;

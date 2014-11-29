@@ -1,4 +1,4 @@
-package pl.starchasers.serverlauncher;
+package pl.starchasers.serverlauncher.webui;
 
 import net.magik6k.jwwf.core.MainFrame;
 import net.magik6k.jwwf.core.User;

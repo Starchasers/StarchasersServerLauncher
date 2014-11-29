@@ -1,4 +1,6 @@
-package pl.starchasers.serverlauncher;
+package pl.starchasers.serverlauncher.webui.permissions;
+
+import pl.starchasers.serverlauncher.LauncherMain;
 
 public class PermissionManager {
 	public static final PermissionManager instance = new PermissionManager();

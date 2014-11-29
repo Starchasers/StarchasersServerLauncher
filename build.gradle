@@ -22,6 +22,10 @@ sourceSets {
 
 repositories {
     mavenCentral()
+    maven {
+		name = "forge"
+		url = "http://files.minecraftforge.net/maven"
+	}
 }
 
 dependencies {
@@ -29,6 +33,7 @@ dependencies {
 	compile 'net.magik6k.jwwf:jwwf:0.2.+'
 	compile 'com.google.code.gson:gson:2.3.1'
 	compile 'com.typesafe:config:0.4.0'
+	compile 'net.minecraftforge:forge:1.7.10-10.13.2.1235:installer'
 }
 
 compileJava {

@@ -2,6 +2,7 @@ package pl.starchasers.serverlauncher;
 
 import java.io.File;
 
+import pl.starchasers.serverlauncher.webui.LauncherClient;
 import net.magik6k.jwwf.core.JwwfServer;
 
 import com.typesafe.config.Config;
