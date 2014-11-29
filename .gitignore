@@ -1,3 +1,5 @@
+.gradle
+/server/
 /build/
 .classpath
 .project

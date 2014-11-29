@@ -25,7 +25,7 @@ public enum Config {
     }
 
     public String get(){
-        return Main.getProperties().getProperty(this.name(),getDefaultValue());
+        return MsmMain.getProperties().getProperty(this.name(),getDefaultValue());
     }
 
     public String getDefaultValue(){

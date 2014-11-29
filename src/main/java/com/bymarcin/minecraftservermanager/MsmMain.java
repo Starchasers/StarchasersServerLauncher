@@ -8,10 +8,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class Main {
+public class MsmMain {
     private static Properties prop = new Properties();
-    private static final String config = "msm.properties";
-    private static File file = new File(config);
+    private static final String configFile = "msm.properties";
+    private static File config = new File(configFile);
     public static void main(String[] args) {
         loadConfig();
         if(args.length==0) printHelp();
@@ -52,7 +52,7 @@ public class Main {
 		try {
 			for(Config c: Config.values())
 				prop.setProperty(c.name(), c.get());
-			prop.store(new FileOutputStream(file), "msm configuration File");
+			prop.store(new FileOutputStream(config), "msm configuration File");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -61,12 +61,12 @@ public class Main {
     protected static void loadConfig(){
         InputStream in;
             try{
-                if(!file.exists()){
-                    if(!file.createNewFile()){
+                if(!config.exists()){
+                    if(!config.createNewFile()){
                         throw new IOException("CouldNotCreateNewFile");
                     }
                 }
-                in = new FileInputStream(file);
+                in = new FileInputStream(config);
                 prop.load(in);
             }catch(IOException e){
                 e.printStackTrace();
