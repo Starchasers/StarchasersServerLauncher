@@ -12,7 +12,6 @@ import java.util.List;
 
 import pl.starchasers.serverlauncher.manager.ProfileProperties;
 
-import com.bymarcin.minecraftservermanager.Config;
 import com.bymarcin.minecraftservermanager.ITask;
 import com.bymarcin.minecraftservermanager.Utils;
 import com.google.gson.Gson;

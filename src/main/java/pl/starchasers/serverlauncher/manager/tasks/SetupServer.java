@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import pl.starchasers.serverlauncher.manager.ProfileProperties;
 
-import com.bymarcin.minecraftservermanager.Config;
 import com.bymarcin.minecraftservermanager.ITask;
 import com.bymarcin.minecraftservermanager.Utils;
 

@@ -4,6 +4,10 @@ import pl.starchasers.serverlauncher.LauncherMain;
 
 public enum ProfileProperties {
 	AUTOSTART("autostart", false),
+	SCREENPREFIX("screen", "sls_"),
+	JAVA("java", "java"),
+	VMARGS("vmargs", "-server -Xms256m -Xmx1G -XX:MaxPermSize=512m"),
+	FORGEJAR("forgeJar", "forge-1.7.10-10.13.2.1235-universal.jar"),
 	SERVERDIR("server", "{profile}/server"),
 	CLIENTDIR("client", "{profile}/client"),
 	SYNCDIR("sync", "{profile}/sync")

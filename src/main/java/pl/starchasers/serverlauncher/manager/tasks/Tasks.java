@@ -4,14 +4,13 @@ import com.bymarcin.minecraftservermanager.ITask;
 import com.bymarcin.minecraftservermanager.tasks.SaveAll;
 import com.bymarcin.minecraftservermanager.tasks.ServerBackup;
 import com.bymarcin.minecraftservermanager.tasks.ServerStatus;
-import com.bymarcin.minecraftservermanager.tasks.StartServer;
 import com.bymarcin.minecraftservermanager.tasks.StopServer;
 
 /**
  * Created by marcin212 on 2014-10-03.
  */
 public enum Tasks {
-    START(StartServer.class),
+    //START(StartServer.class),
     STATUS(ServerStatus.class),
     STOP(StopServer.class),
     SAVEALL(SaveAll.class),

@@ -1,8 +1,8 @@
 package pl.starchasers.serverlauncher.webui;
 
-import pl.starchasers.serverlauncher.webui.panels.LoginPanel;
 import net.magik6k.jwwf.core.MainFrame;
 import net.magik6k.jwwf.core.User;
+import pl.starchasers.serverlauncher.webui.panels.LoginPanel;
 
 public class LauncherClient extends User{
 

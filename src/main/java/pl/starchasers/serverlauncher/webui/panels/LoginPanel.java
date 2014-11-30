@@ -1,13 +1,12 @@
 package pl.starchasers.serverlauncher.webui.panels;
 
-import pl.starchasers.serverlauncher.webui.permissions.PermissionManager;
 import net.magik6k.jwwf.core.MainFrame;
 import net.magik6k.jwwf.handlers.ClickHandler;
-import net.magik6k.jwwf.widgets.basic.TextLabel;
 import net.magik6k.jwwf.widgets.basic.input.Button;
 import net.magik6k.jwwf.widgets.basic.input.PasswordInput;
 import net.magik6k.jwwf.widgets.basic.input.TextInput;
 import net.magik6k.jwwf.widgets.basic.panel.VerticalPanel;
+import pl.starchasers.serverlauncher.webui.permissions.PermissionManager;
 
 public class LoginPanel extends VerticalPanel {
 

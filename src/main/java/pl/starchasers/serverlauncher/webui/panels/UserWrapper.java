@@ -1,8 +1,8 @@
 package pl.starchasers.serverlauncher.webui.panels;
 
-import pl.starchasers.serverlauncher.webui.permissions.PermissionManager;
 import net.magik6k.jwwf.widgets.basic.TextLabel;
 import net.magik6k.jwwf.widgets.basic.panel.TabbedPanel;
+import pl.starchasers.serverlauncher.webui.permissions.PermissionManager;
 
 public class UserWrapper extends TabbedPanel {
 	
@@ -15,7 +15,7 @@ public class UserWrapper extends TabbedPanel {
 			this.put(new TextLabel("TODO"), "Updating");
 		
 		if(PermissionManager.instance.hasPermission(username, "manage"))
-			this.put(new TextLabel("TODO"), "Management");
+			this.put(new ServerManagement(username), "Management");
 		
 		if(PermissionManager.instance.hasPermission(username, "serverinfo"))
 			this.put(new TextLabel("TODO"), "System");
